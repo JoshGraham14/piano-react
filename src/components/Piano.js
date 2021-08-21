@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import Key from './Key'
 import _ from 'lodash'
-import { NOTES, VALID_KEYS } from '../globals/constants'
+import { NOTES, VALID_KEYS, KEY_TO_NOTE } from '../globals/constants'
 
 const Piano = () => {
 	const [pressedKeys, setPressedKeys] = useState([])
 
 	useEffect(() => {
+		const playNote = note => {
+			if (!_.isEmpty(note)) {
+				const noteAudio = new Audio(document.getElementById(note).src)
+				noteAudio.play()
+			}
+		}
+
 		const handleKeyDown = e => {
 			if (e.repeat) {
 				return
@@ -16,8 +23,7 @@ const Piano = () => {
 			if (!newPressedKeys.includes(key) && VALID_KEYS.includes(key)) {
 				newPressedKeys.push(key)
 			}
-			setPressedKeys(newPressedKeys)
-			console.log('keydown')
+			playNote(KEY_TO_NOTE[key])
 		}
 
 		const handleKeyUp = e => {
@@ -25,7 +31,6 @@ const Piano = () => {
 			if (index > -1) {
 				setPressedKeys(pressedKeys.splice(index, 1))
 			}
-			console.log('keyup')
 		}
 
 		window.addEventListener('keydown', handleKeyDown)
@@ -53,7 +58,7 @@ const Piano = () => {
 
 	// creates audio takes mapped to each note
 	const audioFiles = _.map(NOTES, (note, index) => {
-		return <audio key={index} id={note} src={`../../sounds/${note}.mp3}`} />
+		return <audio key={index} id={note} src={`../../sounds/${note}.mp3`} />
 	})
 
 	return (
