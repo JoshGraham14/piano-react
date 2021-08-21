@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Key from './Key'
 import _ from 'lodash'
 import { NOTES } from '../globals/constants'
 
 const Piano = () => {
+	const [pressedKeys, setPressedKeys] = useState([])
+
+	const handleKeyPress = note => {
+		let newPressedKeys = pressedKeys
+		newPressedKeys.push(note)
+		setPressedKeys(newPressedKeys)
+		console.log(pressedKeys)
+	}
+
 	// creates key components
 	const keys = _.map(NOTES, (note, index) => {
-		return <Key whiteKey={note.length === 1} note={note} />
+		return (
+			<Key
+				key={index}
+				whiteKey={note.length === 1}
+				note={note}
+				onChange={handleKeyPress}
+			/>
+		)
 	})
 
 	// creates audio takes mapped to each note

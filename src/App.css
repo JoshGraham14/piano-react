@@ -35,10 +35,6 @@
 	cursor: pointer;
 }
 
-.white-key:active {
-	background: rgb(207, 207, 207);
-}
-
 .black-key {
 	position: relative;
 	background: black;
@@ -51,6 +47,6 @@
 	cursor: pointer;
 }
 
-.black-key:active {
-	background: rgb(54, 54, 54);
+.pressed {
+	background: rgb(255, 0, 0);
 }
