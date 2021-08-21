@@ -15,21 +15,42 @@
 .piano-container {
 	display: flex;
 	position: absolute;
-	background: white;
+	background: rgb(74, 213, 255);
 	inset: 0;
 	margin: auto;
 	width: 600px;
 	height: 300px;
+	padding: 10px;
 }
 
 .white-key {
+	position: relative;
 	background: white;
 	width: 60px;
 	border: 2px solid rgb(34, 34, 34);
+	z-index: 1;
+}
+
+.white-key:hover {
+	cursor: pointer;
+}
+
+.white-key:active {
+	background: rgb(207, 207, 207);
 }
 
 .black-key {
+	position: relative;
 	background: black;
 	width: 40px;
 	height: 200px;
+	z-index: 2;
+}
+
+.black-key:hover {
+	cursor: pointer;
+}
+
+.black-key:active {
+	background: rgb(54, 54, 54);
 }
