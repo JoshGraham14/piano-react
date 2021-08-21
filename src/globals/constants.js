@@ -13,6 +13,21 @@ export const NOTES = [
 	'b',
 ]
 
+export const VALID_KEYS = [
+	's',
+	'e',
+	'd',
+	'r',
+	'f',
+	'g',
+	'y',
+	'h',
+	'u',
+	'j',
+	'i',
+	'k',
+]
+
 export const KEY_TO_NOTE = {
 	s: 'c',
 	e: 'cs',
