@@ -1,23 +1,9 @@
 import React from 'react'
 import Key from './Key'
 import _ from 'lodash'
+import { NOTES } from '../globals/constants'
 
 const Piano = () => {
-	const NOTES = [
-		'c',
-		'cs',
-		'd',
-		'ds',
-		'e',
-		'f',
-		'fs',
-		'g',
-		'gs',
-		'a',
-		'as',
-		'b',
-	]
-
 	// creates key components
 	const keys = _.map(NOTES, (note, index) => {
 		return <Key whiteKey={note.length === 1} note={note} />
