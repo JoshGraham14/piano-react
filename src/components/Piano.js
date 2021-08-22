@@ -8,6 +8,7 @@ const Piano = () => {
 
 	useEffect(() => {
 		const playNote = note => {
+			console.log(pressedKeys)
 			if (!_.isEmpty(note)) {
 				const noteAudio = new Audio(document.getElementById(note).src)
 				noteAudio.play()
@@ -19,9 +20,10 @@ const Piano = () => {
 				return
 			}
 			const key = e.key
-			let newPressedKeys = [...pressedKeys]
+			var newPressedKeys = pressedKeys
 			if (!newPressedKeys.includes(key) && VALID_KEYS.includes(key)) {
 				newPressedKeys.push(key)
+				console.log(`newPressedKeys: ${newPressedKeys}`)
 			}
 			playNote(KEY_TO_NOTE[key])
 		}

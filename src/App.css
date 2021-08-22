@@ -18,9 +18,18 @@
 	background: rgb(74, 213, 255);
 	inset: 0;
 	margin: auto;
-	width: 600px;
+	width: 425px;
 	height: 300px;
 	padding: 10px;
+}
+
+.piano-container .white-key:not(:first-child) {
+	margin-left: -22px;
+}
+
+/* this is to create space between the E and F key */
+.piano-container .white-key:nth-child(5) {
+	margin-right: 20px;
 }
 
 .white-key {
@@ -41,6 +50,7 @@
 	width: 40px;
 	height: 200px;
 	z-index: 2;
+	margin-left: -20px;
 }
 
 .black-key:hover {
